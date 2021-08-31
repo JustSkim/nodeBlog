@@ -1,4 +1,3 @@
-const { resolvePtr } = require("dns")
 const express = require("express")
 const fs = require('fs')
 
@@ -15,8 +14,6 @@ app.get('/',(req,resp)=>{
             console.log(err)
         }
     })
-    resp.write('<h1>22222</h1>')
-    resp.end()
     /*
     node.js中的http.response.end方法使用说明
 https://www.jb51.net/article/58468.htm
@@ -31,6 +28,17 @@ data ： end()执行完毕后要输出的字符，如果指定了 data 的值，
 encoding： 对应data的字符编码 
      
     */
+})
+
+app.get('/toLogin',(req,resp)=>{
+    fs.readFile('pages/login.html',(err,data)=>{
+        if(!err){
+            resp.end(data)
+        }
+        else{
+            console.log(err)
+        }
+    })
 })
 
 app.listen(3000,()=>{
