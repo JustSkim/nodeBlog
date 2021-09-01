@@ -2,11 +2,17 @@ const express = require("express")
 const mysql = require('mysql')
 const util = require('./util.js')
 const { db } = require('./db.js')
+const user = require("./manage/user.js")
+const blog = require("./manage/blog.js")
 const app = express()
 
 //设置静态资源路径
 app.use('/static',express.static(__dirname + '/static'));
 
+/*
+1.负责页面跳转
+2.负责业务数据处理
+*/
 
 //发送get请求，使用回调函数
 app.get('/',(req,resp)=>{
