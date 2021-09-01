@@ -4,7 +4,8 @@ const util = require('./util.js')
 const { db } = require('./db.js')
 const app = express()
 
-
+//设置静态资源路径
+app.use('/static',express.static(__dirname + '/static'));
 
 
 //发送get请求，使用回调函数
