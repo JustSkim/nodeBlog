@@ -57,3 +57,10 @@ app.get('/addUser',(req,resp)=>{
 app.listen(8080,()=>{
     console.log("sever is listening")
 })
+
+
+//------------业务------------
+app.get('/user/getPhone',async (req,resp)=>{
+    const use = await user.getUserByPhone('1503334444')//该方法返回一个数据库数据
+    console.log("user: ",use);
+})

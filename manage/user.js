@@ -1,9 +1,13 @@
+const { db } = require('../db.js');
+
+
 //用户模块的数据持久化操作
 
 module.exports = {
     //根据手机号获取用户信息
-    getUserByPhone: (phone)=>{
-
+    getUserByPhone: async (phone)=>{
+        const sql = 'select id,phone,password,nickname,head_img,personal_sign,level_id from t_user where phone = ?';
+        return await db(sql,[phone])
     },
     //添加用户信息
     addUser: (user) => {
