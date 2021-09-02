@@ -16,7 +16,7 @@ const user = {
         return await db(sql, user)
     },
     //更新用户信息
-    update: (arr) => {
+    update: async (arr) => {
         //[user,id]=>[{nickname:'',age:''},id]
         const sql = "update t_user set ? where id = ?"
         return await db(sql,arr)
@@ -29,8 +29,9 @@ const user = {
         //设置对应参数is_del为1，人为定义让这一行数据不会被系统查询到
     },
     //获取所有用户信息
-    getAll: ()=>{
+    getAll: async ()=>{
         const sql = 'select id,phone,password,nickname,head_img,personal_sign,level_id from t_user where is_del = 0';
+        return await db(sql)
     }
 }
 

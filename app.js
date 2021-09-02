@@ -8,6 +8,20 @@ const app = express()
 
 //设置静态资源路径
 app.use('/static',express.static(__dirname + '/static'));
+//注意，这里两个static必须有斜杠！！！
+
+/*
+express.static()
+提供对静态资源文件(图片、csss文件、javascript文件)的服务。传递一个包含静态资源的目录给 express.static 中间件用于立刻开始提供文件。如下提供public目录下的图片、css文件和javascript文件：
+app.use(express.static('public'));
+express 会在静态资源目录下查找文件，所以不用把静态目录public作为url的一部分。访问项目public的子文件index.js：
+http://localhost:3000/index.js
+可以多次使用 express.static 中间件来添加多个静态资源目录，这时express 将会按照你设置静态资源目录的顺序来查找静态资源文件：
+尤其注意：
+the path that you provide to the express.static function is relative to the directory from where you launch your node process. If you run the express app from another directory, it’s safer to use the absolute path of the directory that you want to serve:
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
+*/
 
 /*
 1.负责页面跳转
